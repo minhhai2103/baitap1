@@ -11,7 +11,7 @@ class VolleyKotlinFn {
     fun getJSON_ArrayObjects(context: Context,textView: TextView)
     {
         val queue= Volley.newRequestQueue(context)
-        val url="http://192.168.1.27/ajson/a.json"
+        val url="http://nguyenvantuanolivas.mooo.com/api2/customer"
         val request=JsonArrayRequest(url,
             Response.Listener {
                 response ->
@@ -19,10 +19,10 @@ class VolleyKotlinFn {
                 {
                     val person=response.getJSONObject(i)
                     val id=person.getString("id")
-                    val name=person.getString("name")
+                    val name=person.getString("cus_name")
                     val email=person.getString("email")
                     strJSON += "id: $id\n"
-                    strJSON += "name: $name\n"
+                    strJSON += "cus_name: $name\n"
                     strJSON += "email: $email\n"
                 }
                 textView.text=strJSON
